@@ -1,3 +1,5 @@
+# import everything
+
 import explorerhat
 import random
 import _thread
@@ -23,12 +25,15 @@ timer = 0.3
 
 height= 10
 
+# setup play area
 mc.setBlock(pos.x-2, pos.y, pos.z + 10, block.DIAMOND_BLOCK)
 mc.setBlock(pos.x+3, pos.y, pos.z + 10, block.DIAMOND_BLOCK)
 mc.setBlock(pos.x+1, pos.y -2, pos.z + 10, block.WOOL.id, red)
 mc.setBlock(pos.x-1, pos.y -2, pos.z + 10, block.WOOL.id, green)
 mc.setBlock(pos.x, pos.y -2, pos.z + 10, block.WOOL.id, yellow)
 mc.setBlock(pos.x+2, pos.y -2, pos.z + 10, block.WOOL.id, blue)
+
+# functions for falling blocks
 
 def red_block():
     height = 10
@@ -95,6 +100,8 @@ def buttonbluepressed(channel, event):
 		mc.postToChat("Super work!")
 		mcb.setBlock(pos.x+2, pos.y, pos.z + 10,block.WOOL.id,0)
 
+# start of game
+
 sleep(5)
 mc.postToChat("Ready")
 sleep(1)
@@ -108,6 +115,8 @@ explorerhat.touch.five.pressed(buttongreenpressed)
 explorerhat.touch.six.pressed(buttonyellowpressed)
 explorerhat.touch.seven.pressed(buttonredpressed)
 explorerhat.touch.eight.pressed(buttonbluepressed)
+
+# main loop
 
 while True:
 	choice = random.randint(0,4)
